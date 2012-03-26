@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+   version="2.5"> 
+
+   <!--
+    <servlet>
+      <servlet-name>JDBCDriverLoader</servlet-name>
+      <servlet-class>kame.jdbc.loader.Loader</servlet-class>
+	  <init-param>
+		<param-name>jdbcdriver</param-name>
+		<param-value>com.mysql.jdbc.Driver</param-value>
+	  </init-param>
+	  <load-on-startup>1</load-on-startup>
+    </servlet>
+	-->
+	<servlet>
+		<servlet-name>DBCPInit</servlet-name>
+		<servlet-class>kame.jdbc.loader.DBCPInit</servlet-class>
+		<init-param>
+			<param-name>jdbcdriver</param-name>
+			<param-value>com.mysql.jdbc.Driver</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+    
+	
+	<servlet>
+		<servlet-name>MessageDaoProviderInit</servlet-name>
+		<servlet-class>kame.chap13.dao.MessageDaoProviderInit</servlet-class>
+		<init-param>
+			<param-name>dbms</param-name>
+			<param-value>mysql</param-value>
+		</init-param>
+		<load-on-startup>1</load-in-startup>1</load-on-startup>
+	</servlet>
+	
+    
+</web-app>
