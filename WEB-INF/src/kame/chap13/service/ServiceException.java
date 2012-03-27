@@ -1,6 +1,6 @@
 package kame.chap13.service;
 
-public class serviceException extends exception {
+public class ServiceException extends Exception {
 	
 	public ServiceException(String message, Exception cause) {
 		super(message, cause);

@@ -9,7 +9,7 @@ import kame.chap13.dao.MessageDao;
 import kame.chap13.dao.MessageDaoProvider;
 import kame.chap13.model.Message;
 import kame.chap13.model.MessageListView;
-import kame.jdbc.jdbcUtil;
+import kame.jdbc.JdbcUtil;
 import kame.jdbc.connection.ConnectionProvider;
 
 public class GetMessageListService {
@@ -46,13 +46,13 @@ public class GetMessageListService {
 				currentPageNumber = 0;
 				messageList = Collections.emptyList();
 			}
-			return new MessageListView(messageList, messgeTotalCount, currentPageNumber,
+			return new MessageListView(messageList, messageTotalCount, currentPageNumber,
 					MESSAGE_COUNT_PER_PAGE, firstRow, endRow);
 		} catch (SQLException e) {
 			throw new ServiceException("메시지 목록 구하기 실패: "
 					+ e.getMessage(), e);
 		} finally {
-			jdbcUtil.close(conn);
+			JdbcUtil.close(conn);
 		}
 	}
 }

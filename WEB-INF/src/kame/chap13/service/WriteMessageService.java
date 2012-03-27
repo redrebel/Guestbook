@@ -3,6 +3,7 @@ package kame.chap13.service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+
 import kame.chap13.dao.MessageDao;
 import kame.chap13.dao.MessageDaoProvider;
 import kame.chap13.model.Message;
@@ -23,17 +24,17 @@ public class WriteMessageService {
 	public void write(Message message) throws ServiceException {
 		Connection conn = null;
 		
-		if(message.getGuestName() == null || message.getGuestName.isEmpty()){
-			throw new IllegalArgumentException("invalid guest name", message);
+		if(message.getGuestName() == null || message.getGuestName().isEmpty()){
+			throw new IllegalArgumentException("invalid guest name");
 		}
 		try{
-			conn = ConnectionProvider.gerConnection();
+			conn = ConnectionProvider.getConnection();
 			MessageDao messageDao = 
 				MessageDaoProvider.getInstance().getMessageDao();
 			messageDao.insert(conn, message);
 		} catch (SQLException e) {
 		} finally {
-			jdbcUtil.close(conn);
+			JdbcUtil.close(conn);
 		}
 	}
 }

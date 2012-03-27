@@ -5,13 +5,13 @@ import kame.chap13.dao.mysql.MySQLMessageDao;
 import kame.chap13.dao.oracle.OracleMessageDao;
 
 public class MessageDaoProvider {
-	private static MessageDaoProvider instane = new MessageDaoProvider();
+	private static MessageDaoProvider instance = new MessageDaoProvider();
 	public static MessageDaoProvider getInstance(){
 		return instance;
 	}
-	private MySQLMessageDaoProvider() = new MySQLMessageDao();
-	private OracleMessageDaoProvider() = new OracleMessageDao();
-	private MSSQLMessageDaoProvider() = new MSSQLMessageDao();
+	private MySQLMessageDao mysqlDao = new MySQLMessageDao();
+	private OracleMessageDao oracleDao = new OracleMessageDao();
+	private MSSQLMessageDao mssqlDao = new MSSQLMessageDao();
 	private String dbms;
 	
 	void setDbms(String dbms)
