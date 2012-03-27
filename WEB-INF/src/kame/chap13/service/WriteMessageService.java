@@ -28,6 +28,7 @@ public class WriteMessageService {
 			throw new IllegalArgumentException("invalid guest name");
 		} else if(!message.hasPassword()){
 			throw new IllegalArgumentException("invalid password");
+
 		}
 		try{
 			conn = ConnectionProvider.getConnection();
