@@ -1,8 +1,8 @@
 <object class="org.apache.commons.dbcp.PoolableConnectionFactory"
-	xmlns = "http://apache.org/xml/xmlns/jakarta/commons/jod"
+	xmlns = "http://apache.org/xml/xmlns/jakarta/commons/jocl">
 	
-	<object class="org.apach.commons.dbcDriverManagerConnectionFactory">
-		<string value= "jdbc:mysql://localhost:3306/chap13?useUnicode=true&amp;characterEncoding=euck"/>
+	<object class="org.apache.commons.dbcp.DriverManagerConnectionFactory">
+		<string value= "jdbc:mysql://localhost:3306/chap13?useUnicode=true&amp;characterEncoding=euckr"/>
 		<string value= "jspexam"/>
 		<string value= "jspex"/>
 	</object>
@@ -10,11 +10,7 @@
 	<object class = "org.apache.commons.pool.impl.GenericObjectPool">
 		<object class="org.apache.commons.pool.PoolableObjectFactory" null="true"/>
 	</object>
-	
-	<object class = "org.apache.commons.pool.impl.GenericObjectPool">
-		<object class = "org.apache.commons.pool.PoolableObjectRactory" null="true"/>
-	</object>
-	
+
 	<object class = "org.apache.commons.pool.KeyedObjectPoolFactory" null="true"/>
 	
 	<string null="true"/>
@@ -22,3 +18,4 @@
 	<boolean value="false"/>
 	
 	<boolean value="true"/>
+	</object>

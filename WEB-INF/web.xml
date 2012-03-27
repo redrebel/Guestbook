@@ -33,7 +33,7 @@
 			<param-name>dbms</param-name>
 			<param-value>mysql</param-value>
 		</init-param>
-		<load-on-startup>1</load-in-startup>1</load-on-startup>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
     

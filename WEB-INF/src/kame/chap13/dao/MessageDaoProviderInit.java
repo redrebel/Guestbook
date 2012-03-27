@@ -2,7 +2,7 @@ package kame.chap13.dao;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import kavax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServlet;
 
 public class MessageDaoProviderInit extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {

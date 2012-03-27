@@ -14,17 +14,17 @@ import kame.jdbc.JdbcUtil;
 
 public class MySQLMessageDao extends MessageDao{
 	public int insert(Connection conn, Message message) throws SQLException{
-		PreparedStatment pstmt = null;
+		PreparedStatement pstmt = null;
 		try{
-			pstmt = conn.prepareStatment(
+			pstmt = conn.prepareStatement(
 				"insert into guestbook_message " +
 				"(guest_name, password, message) values (?, ?, ?)");
-			pstmt.setString(1, messsge.getGuestName());
+			pstmt.setString(1, message.getGuestName());
 			pstmt.setString(2, message.getPassword());
 			pstmt.setString(3, message.getMessage());
 			return pstmt.executeUpdate();
 		} finally {
-			jdbcUtil(pstmt);
+			JdbcUtil.close(pstmt);
 		}
 	}
 	
@@ -43,12 +43,14 @@ public class MySQLMessageDao extends MessageDao{
 				do {
 					messageList.add(super.makeMessageFromResultSet(rs));
 				} while (rs.next());
+				return messageList;
 			} else {
 				return Collections.emptyList();
 			}
 		} finally {
-			jdbcUtil.close(rs);
-			jdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
 		}
+		
 	}
 }

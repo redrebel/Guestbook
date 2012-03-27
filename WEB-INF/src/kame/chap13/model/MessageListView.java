@@ -15,7 +15,7 @@ public class MessageListView {
 			int messageCountPerPage, int startRow, int endRow) {
 		this.messageList = messageList;
 		this.messageTotalCount = messageTotalCount;
-		this.currentPageNumer = currentPageNumber;
+		this.currentPageNumber = currentPageNumber;
 		this.messageCountPerPage = messageCountPerPage;
 		this.firstRow = startRow;
 		this.endRow = endRow;
@@ -27,7 +27,7 @@ public class MessageListView {
 		if(messageTotalCount == 0) {
 			pageTotalCount = 0;
 		} else {
-			pageTotalCout = messageTotalCount / messageCountPerPage;
+			pageTotalCount = messageTotalCount / messageCountPerPage;
 			if(messageTotalCount % messageCountPerPage > 0) {
 				pageTotalCount++;
 			}
@@ -55,11 +55,11 @@ public class MessageListView {
 	}
 	
 	public int getFirstRow(){
-		firstRow;
+		return firstRow;
 	}
 	
 	public int getEndRow() {
-		endRow;
+		return endRow;
 	}
 	
 	public boolean isEmpty() {

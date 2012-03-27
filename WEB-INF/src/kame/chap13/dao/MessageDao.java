@@ -26,8 +26,8 @@ public abstract class MessageDao{
 				return null;
 			}
 		} finally {
-			jdbcUtil.close(rs);
-			jdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
 		}
 	}
 	
@@ -37,11 +37,11 @@ public abstract class MessageDao{
 		message.setId(rs.getInt("message_id"));
 		message.setGuestName(rs.getString("guest_name"));
 		message.setPassword(rs.getString("password"));
-		message.setMessage(rs.getString("messgae"));
+		message.setMessage(rs.getString("message"));
 		return message;
 	}
 	
-	public int selectCount(Connection conn) throw SQLException {
+	public int selectCount(Connection conn) throws SQLException {
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
@@ -50,16 +50,16 @@ public abstract class MessageDao{
 			rs.next();
 			return rs.getInt(1);
 		} finally {
-			jdbcUtil.close(rs);
-			jdbcUtil.close(stmt);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(stmt);
 		}
 	}
 	
 	public abstract List<Message> selectList(Connection conn, int firstRow,
-			int endRow) throw SQLException;
+			int endRow) throws SQLException;
 			
 	public int delete(Connection conn, int messageId) throws SQLException {
-		PrepareStatement pstmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(
@@ -67,8 +67,8 @@ public abstract class MessageDao{
 			pstmt.setInt(1, messageId);
 			return pstmt.executeUpdate();
 		} finally {
-			jdbcUtil.close(rs);
-			jdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
 		}
 	}
 }
